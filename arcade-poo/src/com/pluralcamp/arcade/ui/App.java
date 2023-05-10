@@ -11,7 +11,7 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		System.out.println("---> Arcade Games POO Demo <---");
+		System.out.println("\n---> Arcade Games POO Demo <---");
 		
 		//MarioGame		
 		int numberOfLifes = askLifes();
