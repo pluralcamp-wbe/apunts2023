@@ -10,7 +10,7 @@ import com.pluralcamp.arcade.model.SuperContraGame;
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		System.out.println("---> Arcade Games POO Demo <---");
 		
 		//MarioGame		
