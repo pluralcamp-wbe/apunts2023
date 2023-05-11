@@ -1,6 +1,6 @@
 package com.pluralcamp.animals.entities;
 
-public class Duck extends Animal {
+public class Duck extends Animal implements Speakable {
 
 	private boolean migratory;
 	private double wingsSize;
@@ -28,8 +28,8 @@ public class Duck extends Animal {
 	}
 
 	
-	
-	public void speak() {
+	@Override
+	public void makeSound() {
 		System.out.println("Quack quack ...");
 	}
 

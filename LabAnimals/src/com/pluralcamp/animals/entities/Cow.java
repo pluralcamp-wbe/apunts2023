@@ -1,10 +1,11 @@
 package com.pluralcamp.animals.entities;
 
-public class Cow extends Animal {
+public class Cow extends Animal implements Speakable {
 
 	private boolean milk;
 	
-	public void speak() {
+	@Override
+	public void makeSound() {
 		System.out.println("Muuuuuu.....");
 	}
 

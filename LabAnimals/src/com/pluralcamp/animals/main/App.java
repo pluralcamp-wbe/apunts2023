@@ -8,10 +8,10 @@ public class App {
 		
 		System.out.println("---> Fase 1 <---");
 		Cat cat = new Cat();
-		cat.speak();
+		cat.makeSound();
 		
 		Cow cow = new Cow();
-		cow.speak();
+		cow.makeSound();
 		
 		Duck duck = new Duck();
 		duck.feed();
@@ -26,6 +26,16 @@ public class App {
 		for(Animal animal : animals) {
 			//System.out.print(animal.getClass().getSimpleName() + ": ");
 			animal.feed();
+		}
+		
+		System.out.println("");
+		System.out.println("---> Fase 3 <---");
+		
+		Speakable[] parlantes = {cat, cow, duck};
+		
+		for(Speakable parlante : parlantes) {
+			parlante.organ();
+			parlante.makeSound();			
 		}
 		
 		

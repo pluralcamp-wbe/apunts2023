@@ -29,6 +29,7 @@ public class Animal {
 		System.out.println(this.getClassName() + " is reproducing");
 	}
 	
+	
 	private String getClassName() {
 		return this.getClass().getSimpleName();
 	}
