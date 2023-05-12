@@ -1,5 +1,6 @@
 package com.pluralcamp.pair.entities;
 
+
 public class Pair<K,V> {
 	
 	private K key;

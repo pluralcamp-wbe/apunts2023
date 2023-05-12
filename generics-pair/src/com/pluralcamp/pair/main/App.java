@@ -1,10 +1,16 @@
 package com.pluralcamp.pair.main;
 
-import com.pluralcamp.pair.entities.*;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Map;
+
+import com.pluralcamp.pair.entities.Event;
+import com.pluralcamp.pair.entities.Money;
+import com.pluralcamp.pair.entities.Pair;
+import com.pluralcamp.pair.entities.Person;
+import com.pluralcamp.pair.entities.Student;
+import com.pluralcamp.pair.entities.Ticket;
 
 public class App {
 
@@ -21,6 +27,9 @@ public class App {
 		payment.setKey(new Money());
 		payment.setValue(new Ticket[12]);
 		
+		List<Pair<Money,Ticket[]>> pagosAnuales = new ArrayList<>();
+		
+		
 		Pair<String,Person> pair = new Pair<>();
 		pair.setKey("12345678K");
 		pair.setValue(new Person("Pepet", "Cases"));
@@ -35,6 +44,7 @@ public class App {
 		dataPersons.put("07651206T", "Abril Nevada");
 		
 		List<Pair<String,Person>> persons  = new ArrayList<>();
+		
 		
 		for(Map.Entry<String,String> entry: dataPersons.entrySet()) {
 			
