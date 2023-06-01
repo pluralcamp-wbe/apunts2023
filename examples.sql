@@ -173,7 +173,8 @@ DROP FUNCTION IF EXISTS calculateAvgOrderCount;
 DELIMITER $$
 CREATE FUNCTION calculateAvgOrderCount()
 RETURNS DECIMAL(10, 2)
-
+NOT DETERMINISTIC
+READS SQL DATA
 BEGIN
     DECLARE avg_order_count DECIMAL(10, 2);
 
@@ -200,7 +201,80 @@ SET @avg_order_count := (
 	) as subquery
 );
 
+-- more:
+
 select @avg_order_count;
+DROP FUNCTION IF EXISTS getCountByCustomerId;
+DELIMITER $$
+CREATE FUNCTION getCountByCustomerId(customerId INT)
+RETURNS INT
+NOT DETERMINISTIC 
+READS SQL DATA
+BEGIN
+    DECLARE orders_count_by_customer_id INT;
+
+    SELECT COUNT(customer_id) INTO orders_count_by_customer_id
+    FROM minishop.orders as o
+    WHERE o.customer_id = customerId;
+    
+    RETURN orders_count_by_customer_id;
+END$$
+DELIMITER ;
+
+
+-- and more:
+
+set @cust_id := 5;
+
+select c.name, getCountByCustomerId(@cust_id) as 'Orders amount'
+from minishop.customers c
+where c.id = @cust_id;
+
+-- plus more:
+
+DROP PROCEDURE IF EXISTS getCountAllCustomers;
+DELIMITER $$
+CREATE PROCEDURE getCountAllCustomers(startId INT, maxId INT)
+BEGIN
+  inici: LOOP
+    SET startId = startId + 1;
+    IF startId < maxId THEN
+      ITERATE inici;
+    END IF;
+    LEAVE inici;
+  END LOOP inici;
+  SET @x = startId;
+END$$
+DELIMITER ;
+set @maxId := (SELECT id FROM customers ORDER BY id DESC LIMIT 0, 1);
+call getCountAllCustomers(1, @maxId);
+select @x;
+
+-- even more:
+DROP PROCEDURE IF EXISTS getCountAllCustomers;
+DELIMITER $$
+CREATE PROCEDURE getCountAllCustomers(startId INT, maxId INT)
+BEGIN
+  inici: LOOP
+    SET startId = startId + 1;
+    IF startId <= maxId THEN
+		select c.name, getCountByCustomerId(startId) as 'Orders amount'
+		from minishop.customers c
+		where c.id = startId;
+	ITERATE inici;
+    END IF;
+    LEAVE inici;
+  END LOOP inici;
+  SET @x = startId;
+END$$
+DELIMITER ;
+
+set @maxId := (SELECT id FROM customers ORDER BY id DESC LIMIT 0, 1);
+call getCountAllCustomers(0, @maxId);
+select @x;
+
+
+
 
 -- HAVING
 /*
