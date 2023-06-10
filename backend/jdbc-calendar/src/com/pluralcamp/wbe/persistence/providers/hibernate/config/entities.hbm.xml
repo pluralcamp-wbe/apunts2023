@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.pluralcamp.wbe.entities">
+    
+    <class name="Employee" table="employees">
+        <id name="id" type="java.lang.Long" unsaved-value="-1">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="code" type="java.lang.String" column="code" not-null="true" length="10" unique="true"/>
+        <property name="firstname" type="java.lang.String" column="firstname" not-null="true" length="50"/>
+        <property name="lastname" type="java.lang.String" column="lastname" not-null="true" length="100"/>
+        <property name="gender" column="gender">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.pluralcamp.wbe.entities.Employee$Gender</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+        <property name="birthDate" type="java.time.LocalDate" column="birthDate" not-null="true"/>
+        <property name="hireDate" type="java.time.LocalDate" column="hireDate" not-null="true"/>
+        <property name="monthlySalary" type="java.lang.Double" column="monthlySalary" not-null="true"/>
+        <property name="payments" type="java.lang.Integer" column="payments" not-null="true"/>
+    </class>
+    
+    <class name="Color" table="colors">
+        <id name="id" type="java.lang.Long" unsaved-value="-1">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="java.lang.String" column="name" not-null="true" length="50"/>
+        <property name="red" type="java.lang.Integer" column="red" not-null="true"/>
+        <property name="green" type="java.lang.Integer" column="green" not-null="true"/>
+        <property name="blue" type="java.lang.Integer" column="blue" not-null="true"/>
+    </class>
+    
+    <class name="Event" table="events">
+        <id name="id" type="java.lang.Long" unsaved-value="-1">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="java.lang.String" column="name" not-null="true" length="250"/>
+        <property name="date" type="java.time.LocalDate" column="date" not-null="true" />
+        <property name="startTime" type="java.time.LocalTime" column="startTime" not-null="true" />
+        <property name="endTime" type="java.time.LocalTime" column="endTime" not-null="true" />
+        <property name="place" type="java.lang.String" column="place" not-null="true" length="50"/>
+        <property name="description" type="java.lang.String" column="description" not-null="false" length="500"/>
+        <many-to-one name="backgroundColor" column="backgroundColor" class="com.pluralcamp.jpd.entities.Color" not-null="true"/>
+        <many-to-one name="textColor" column="textColor" class="com.pluralcamp.jpd.entities.Color" not-null="true"/>
+        <property name="visible" type="java.lang.Boolean" column="visible" not-null="true"/>
+        <property name="registrationDate" type="java.time.LocalDateTime" column="registrationDate" not-null="true"/>    
+    </class>
+    
+</hibernate-mapping>
+

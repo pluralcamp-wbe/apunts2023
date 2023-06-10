@@ -1,0 +1,31 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+      <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/calendar?serverTimeZone=Europe/Paris</property>
+        <property name="connection.username">orboan</property>
+        <property name="connection.password">pluralcamp</property>	
+	    
+	    <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+	
+	    <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        
+        <!-- Drop and re-create the database schema on startup -->
+        <!-- hbm2dll.auto -> Create the database structure from the model class
+             Posibles valores:
+                validate: validate the schema, makes no changes to the database.
+                update: update the schema.
+                create: creates the schema, destroying previous data.
+                create-drop: drop the schema at the end of the session.
+        -->
+        <property name="hbm2ddl.auto">validate</property>  
+        
+        <!-- Mapping resources file  (ORM: mapeo de filas a objetos) -->            
+	    <mapping resource="com/pluralcamp/wbe/persistence/providers/hibernate/config/entities.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
