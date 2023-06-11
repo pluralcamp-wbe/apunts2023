@@ -1,0 +1,8 @@
+{
+    "image": "pluralcamp/entorn-io-dev:ilg-0.0.1",    
+    "features": {
+	"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+	"ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "postStartCommand": "sudo /home/$NB_USER/.local/bin/startup.sh"
+}
