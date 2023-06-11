@@ -11,6 +11,6 @@ public interface EventDAO {
     List<Event> getEvents(int offset, int count) throws DAOException;
     List<Event> getEvents(String searchTerm) throws DAOException;
     List<Event> getEvents(String searchTerm, int offset, int count) throws DAOException;
-   
+
     long getNumOfEvents() throws DAOException;
 }

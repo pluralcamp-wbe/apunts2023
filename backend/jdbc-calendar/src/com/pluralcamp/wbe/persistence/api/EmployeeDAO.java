@@ -11,8 +11,8 @@ public interface EmployeeDAO {
     List<Employee> getEmployees(int offset, int count) throws DAOException;
     List<Employee> getEmployees(String searchTerm) throws DAOException;
     List<Employee> getEmployees(String searchTerm, int offset, int count) throws DAOException;
-    
+
     long getNumOfEmployees() throws DAOException;
-    
+
     public Employee addEmployee(Employee employee) throws DAOException;
 }

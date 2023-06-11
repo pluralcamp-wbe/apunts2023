@@ -52,11 +52,11 @@ public class ColorDAOJDBCImpl implements ColorDAO {
 
 		return color;
 	}
-	
+
 	// Mapeo fila - objeto
 	private Color getColorFrom(ResultSet reader) throws SQLException {
-		var color = new Color(reader.getString("name"), 
-				reader.getInt("red"), 
+		var color = new Color(reader.getString("name"),
+				reader.getInt("red"),
 				reader.getInt("green"),
 				reader.getInt("blue"));
 		color.setId(reader.getLong("id"));
@@ -79,7 +79,7 @@ public class ColorDAOJDBCImpl implements ColorDAO {
 		ResultSet reader = null;
 		try {
 			connection = DriverManager.getConnection(url, username, password);
-			sentSQL = connection.prepareStatement(query);			
+			sentSQL = connection.prepareStatement(query);
 			reader = sentSQL.executeQuery();
 			while (reader.next()) {
 				// ORM : mapear la fila con el objeto de tipo Color

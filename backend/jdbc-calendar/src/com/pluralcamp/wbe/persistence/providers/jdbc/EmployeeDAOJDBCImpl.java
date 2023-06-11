@@ -1,14 +1,11 @@
 package com.pluralcamp.wbe.persistence.providers.jdbc;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pluralcamp.wbe.entities.Color;
 import com.pluralcamp.wbe.entities.Employee;
 import com.pluralcamp.wbe.persistence.api.EmployeeDAO;
 import com.pluralcamp.wbe.persistence.exceptions.DAOException;
@@ -104,7 +101,7 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 		String query = "SELECT id, code, firstname, lastname, " + "gender, birthDate, hireDate, monthlySalary, payments"
 				+ " FROM employees LIMIT ?,?";
 
-		// try-with-resources (need to implement Autoclosable) 
+		// try-with-resources (need to implement Autoclosable)
 		try (
 				// Paso 1: Obtener un conexión con la BD
 				var connection = DriverManager.getConnection(url, username, password);

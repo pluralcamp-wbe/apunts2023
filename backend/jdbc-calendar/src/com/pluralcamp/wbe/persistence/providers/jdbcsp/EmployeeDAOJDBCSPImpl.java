@@ -98,7 +98,7 @@ public class EmployeeDAOJDBCSPImpl implements EmployeeDAO {
 		String password = "pluralcamp";
 		String query = "CALL searchEmployeesByRange(?,?)";
 
-		// try-with-resources (need to implement Autoclosable) 
+		// try-with-resources (need to implement Autoclosable)
 		try (
 				// Paso 1: Obtener un conexión con la BD
 				var connection = DriverManager.getConnection(url, username, password);

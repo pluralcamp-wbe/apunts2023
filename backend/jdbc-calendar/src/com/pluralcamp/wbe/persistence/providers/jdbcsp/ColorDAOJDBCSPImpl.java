@@ -17,11 +17,11 @@ public class ColorDAOJDBCSPImpl implements ColorDAO {
 		//TODO with CallableStatement
 		return color;
 	}
-	
+
 	// Mapeo fila - objeto
 	private Color getColorFrom(ResultSet reader) throws SQLException {
-		var color = new Color(reader.getString("name"), 
-				reader.getInt("red"), 
+		var color = new Color(reader.getString("name"),
+				reader.getInt("red"),
 				reader.getInt("green"),
 				reader.getInt("blue"));
 		color.setId(reader.getLong("id"));

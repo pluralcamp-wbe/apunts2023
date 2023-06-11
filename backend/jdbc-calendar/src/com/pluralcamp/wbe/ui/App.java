@@ -20,17 +20,17 @@ public class App {
 		EventDAO eventDAO = new EventDAOJDBCSPImpl();
 
 		printColorById(colorDAO, 5);
-		
+
 		printAllColors(colorDAO);
 
 		printEmployeeById(employeeDAO, 1);
-		
+
 		printAllEmployees(employeeDAO);
-		
+
 		printEmployees(employeeDAO, 1, 2);
-		
+
 		printEventById(eventDAO, 1);
-		
+
 	}
 
 	private static void printColorById(ColorDAO colorDAO, int id) {
@@ -59,7 +59,7 @@ public class App {
 			System.out.printf("Error:: %s %n", ex.getMessage());
 		}
 	}
-	
+
 	private static void printEmployeeById(EmployeeDAO employeeDAO, int id) {
 
 		// Obtener un único color por su id
@@ -73,7 +73,7 @@ public class App {
 			System.out.printf("Error:: %s %n", ex.getMessage());
 		}
 	}
-	
+
 	private static void printAllEmployees(EmployeeDAO employeeDAO) {
 
 		// Obtener un único color por su id
@@ -87,7 +87,7 @@ public class App {
 			System.out.printf("Error:: %s %n", ex.getMessage());
 		}
 	}
-	
+
 	private static void printEmployees(EmployeeDAO employeeDAO, int offset, int count) {
 
 		// Obtener un único color por su id
@@ -101,7 +101,7 @@ public class App {
 			System.out.printf("Error:: %s %n", ex.getMessage());
 		}
 	}
-	
+
 	private static void printEventById(EventDAO eventDAO, int id) {
 
 		// Obtener un único color por su id
