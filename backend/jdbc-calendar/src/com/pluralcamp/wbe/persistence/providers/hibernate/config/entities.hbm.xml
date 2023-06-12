@@ -45,8 +45,8 @@
         <property name="endTime" type="java.time.LocalTime" column="endTime" not-null="true" />
         <property name="place" type="java.lang.String" column="place" not-null="true" length="50"/>
         <property name="description" type="java.lang.String" column="description" not-null="false" length="500"/>
-        <many-to-one name="backgroundColor" column="backgroundColor" class="com.pluralcamp.jpd.entities.Color" not-null="true"/>
-        <many-to-one name="textColor" column="textColor" class="com.pluralcamp.jpd.entities.Color" not-null="true"/>
+        <many-to-one name="backgroundColor" column="backgroundColor" class="com.pluralcamp.wbe.entities.Color" not-null="true"/>
+        <many-to-one name="textColor" column="textColor" class="com.pluralcamp.wbe.entities.Color" not-null="true"/>
         <property name="visible" type="java.lang.Boolean" column="visible" not-null="true"/>
         <property name="registrationDate" type="java.time.LocalDateTime" column="registrationDate" not-null="true"/>    
     </class>
