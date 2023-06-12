@@ -25,7 +25,8 @@ public class HibernateUtils {
     
     public static void initialize() {
         LogManager.getLogManager().getLogger("").setLevel(Level.OFF);
-        var resource = HibernateUtils.class.getResource("/es/pue/myapp/persistence/providers/hibernate/config/hibernate.cfg.xml");
+        var resource = HibernateUtils.class.
+        		getResource("/com/pluralcamp/wbe/persistence/providers/hibernate/config/hibernate.cfg.xml");
         
         serviceRegistry = new StandardServiceRegistryBuilder().configure(new File(resource.getPath())).build();
         sessionFactory = new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
