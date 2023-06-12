@@ -7,6 +7,7 @@ import com.pluralcamp.wbe.persistence.api.ColorDAO;
 import com.pluralcamp.wbe.persistence.api.EmployeeDAO;
 import com.pluralcamp.wbe.persistence.api.EventDAO;
 import com.pluralcamp.wbe.persistence.exceptions.DAOException;
+import com.pluralcamp.wbe.persistence.providers.hibernate.impl.ColorDAOHibernateImpl;
 import com.pluralcamp.wbe.persistence.providers.jdbc.ColorDAOJDBCImpl;
 import com.pluralcamp.wbe.persistence.providers.jdbcsp.EmployeeDAOJDBCSPImpl;
 import com.pluralcamp.wbe.persistence.providers.jdbcsp.EventDAOJDBCSPImpl;
@@ -16,16 +17,18 @@ public class App {
 	public static void main(String[] args) {
 		//ColorDAO colorDAO = new ColorDAOJDBCImpl();
 		//EmployeeDAO employeeDAO = new EmployeeDAOJDBCImpl();
-		EmployeeDAO employeeDAO = new EmployeeDAOJDBCSPImpl();
+		//EmployeeDAO employeeDAO = new EmployeeDAOJDBCSPImpl();
 		//EventDAO eventDAO = new EventDAOJDBCSPImpl();
 
-		//printColorById(colorDAO, 5);
+		ColorDAO colorDAO = new ColorDAOHibernateImpl();
+		
+		printColorById(colorDAO, 5);
 
 		//printAllColors(colorDAO);
 
 		//printEmployeeById(employeeDAO, 1);
 
-		printAllEmployees(employeeDAO);
+		//printAllEmployees(employeeDAO);
 
 		//printEmployees(employeeDAO, 1, 2);
 
