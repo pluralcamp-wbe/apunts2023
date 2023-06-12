@@ -1,5 +1,6 @@
 package com.pluralcamp.wbe.persistence.providers.jdbcsp;
 
+import java.sql.CallableStatement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,12 +28,12 @@ public class EmployeeDAOJDBCSPImpl implements EmployeeDAO {
 				// Paso 1: Obtener un conexión con la BD
 				var connection = DriverManager.getConnection(url, username, password);
 				// Paso 2: Crear un Statement (canal para enviar una query)
-				var sentSQL = connection.prepareCall(query);
+				CallableStatement sentSQL = connection.prepareCall(query);
 
 		) {
 			sentSQL.setLong(1, id);
 			// Paso 3: Crear el canal para leer el Resultado (respuesta a mi query).
-			try (var reader = sentSQL.executeQuery()) {
+			try (ResultSet reader = sentSQL.executeQuery()) {
 				if (reader.next()) {
 					// ORM : mapear la fila con el objeto de tipo Color
 					employee = getEmployeeFrom(reader);

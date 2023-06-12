@@ -14,22 +14,22 @@ import com.pluralcamp.wbe.persistence.providers.jdbcsp.EventDAOJDBCSPImpl;
 public class App {
 
 	public static void main(String[] args) {
-		ColorDAO colorDAO = new ColorDAOJDBCImpl();
+		//ColorDAO colorDAO = new ColorDAOJDBCImpl();
 		//EmployeeDAO employeeDAO = new EmployeeDAOJDBCImpl();
 		EmployeeDAO employeeDAO = new EmployeeDAOJDBCSPImpl();
-		EventDAO eventDAO = new EventDAOJDBCSPImpl();
+		//EventDAO eventDAO = new EventDAOJDBCSPImpl();
 
-		printColorById(colorDAO, 5);
+		//printColorById(colorDAO, 5);
 
-		printAllColors(colorDAO);
+		//printAllColors(colorDAO);
 
-		printEmployeeById(employeeDAO, 1);
+		//printEmployeeById(employeeDAO, 1);
 
 		printAllEmployees(employeeDAO);
 
-		printEmployees(employeeDAO, 1, 2);
+		//printEmployees(employeeDAO, 1, 2);
 
-		printEventById(eventDAO, 1);
+		//printEventById(eventDAO, 1);
 
 	}
 
