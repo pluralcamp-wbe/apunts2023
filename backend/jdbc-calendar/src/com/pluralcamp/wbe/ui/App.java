@@ -11,28 +11,30 @@ import com.pluralcamp.wbe.persistence.providers.hibernate.impl.ColorDAOHibernate
 import com.pluralcamp.wbe.persistence.providers.jdbc.ColorDAOJDBCImpl;
 import com.pluralcamp.wbe.persistence.providers.jdbcsp.EmployeeDAOJDBCSPImpl;
 import com.pluralcamp.wbe.persistence.providers.jdbcsp.EventDAOJDBCSPImpl;
+import com.pluralcamp.wbe.persistence.utils.DAOFactory;
 
 public class App {
 
 	public static void main(String[] args) {
-		//ColorDAO colorDAO = new ColorDAOJDBCImpl();
-		//EmployeeDAO employeeDAO = new EmployeeDAOJDBCImpl();
-		//EmployeeDAO employeeDAO = new EmployeeDAOJDBCSPImpl();
-		//EventDAO eventDAO = new EventDAOJDBCSPImpl();
+		
+		DAOFactory daoFactory = new DAOFactory();
+		
+		ColorDAO colorDAO = daoFactory.getColorDAO();
+		EmployeeDAO employeeDAO = daoFactory.getEmployeeDAO();
+		EventDAO eventDAO = daoFactory.getEventDAO();
 
-		ColorDAO colorDAO = new ColorDAOHibernateImpl();
 		
 		printColorById(colorDAO, 5);
 
-		//printAllColors(colorDAO);
+		printAllColors(colorDAO);
 
-		//printEmployeeById(employeeDAO, 1);
+		printEmployeeById(employeeDAO, 1);
 
-		//printAllEmployees(employeeDAO);
+		printAllEmployees(employeeDAO);
 
-		//printEmployees(employeeDAO, 1, 2);
+		printEmployees(employeeDAO, 1, 2);
 
-		//printEventById(eventDAO, 1);
+		printEventById(eventDAO, 1);
 
 	}
 

@@ -1,5 +1,6 @@
 package com.pluralcamp.wbe.persistence.providers.hibernate.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -30,8 +31,18 @@ public class ColorDAOHibernateImpl implements ColorDAO {
 
 	@Override
 	public List<Color> getColors() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+        List<Color> colors = new ArrayList<>();
+        
+        try (var session = HibernateUtils.getSessionFactory().openSession()) {
+            
+            var hql = session.createQuery("FROM Color");
+            colors = hql.list();       
+        }
+        catch (HibernateException ex) {
+            throw new DAOException(ex);
+        }
+        
+        return colors;
 	}
 
 	@Override
