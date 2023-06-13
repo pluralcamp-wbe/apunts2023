@@ -1,53 +1,53 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.pluralcamp</groupId>
+  <groupId>com.pluralcamp</groupId>
 
-	<artifactId>restaurant</artifactId>
+  <artifactId>restaurant</artifactId>
 
-	<version>1.0-SNAPSHOT</version>
+  <version>1.0-SNAPSHOT</version>
 
-	<packaging>war</packaging>
+  <packaging>war</packaging>
 
-	<name>Quark's Restaurant</name>
+  <name>Quark's Restaurant</name>
 
-	<url>http://quarks.pluralcamp.com</url>
+  <url>http://quarks.pluralcamp.com</url>
 
-	<properties>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<tomcat.version>10.1.8</tomcat.version>
-	</properties>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <tomcat.version>10.1.8</tomcat.version>
+  </properties>
 
-	<build>
-		<plugins>
+  <build>
+    <plugins>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.3.2</version>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version>
 
-				<configuration>
-					<outputDirectory>${basedir}/war-file/</outputDirectory>
-					<warName>myquarkswebapp</warName>
+        <configuration>
+          <outputDirectory>${basedir}/war-file/</outputDirectory>
+          <warName>myquarkswebapp</warName>
 
-					<webResources>
-						<resource>
-							<directory>${basedir}/src/main/resources</directory>
-							<targetPath>WEB-INF</targetPath>
-							<filtering>none</filtering>
-						</resource>
-					</webResources>
+          <webResources>
+            <resource>
+              <directory>${basedir}/src/main/resources</directory>
+              <targetPath>WEB-INF</targetPath>
+              <filtering>none</filtering>
+            </resource>
+          </webResources>
 
-				</configuration>
+        </configuration>
 
-			</plugin>
+      </plugin>
 
-			<!-- 			<plugin>
+      <!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
@@ -57,44 +57,52 @@
 				</configuration>
 			</plugin> -->
 
-		</plugins>
-	</build>
+    </plugins>
+  </build>
 
-	<dependencies>
-		<!-- Embedded tomcat -->
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-			<version>${tomcat.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-logging-juli</artifactId>
-			<version>8.5.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>${tomcat.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-jasper</artifactId>
-			<version>${tomcat.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-jasper-el</artifactId>
-			<version>${tomcat.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat</groupId>
-			<artifactId>tomcat-jsp-api</artifactId>
-			<version>${tomcat.version}</version>
-		</dependency>
+  <dependencies>
+    <!-- Embedded tomcat -->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-core</artifactId>
+      <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-logging-juli</artifactId>
+      <version>8.5.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jasper</artifactId>
+      <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jasper-el</artifactId>
+      <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jsp-api</artifactId>
+      <version>${tomcat.version}</version>
+    </dependency>
 
-		<!-- Servlet api and dependencies -->
+    <!-- Servlet api and dependencies -->
+    <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.9.3</version>
+      <scope>test</scope>
+    </dependency>
 
 
-	</dependencies>
+  </dependencies>
 </project>
