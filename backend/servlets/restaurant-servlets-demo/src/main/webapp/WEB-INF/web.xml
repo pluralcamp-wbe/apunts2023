@@ -29,5 +29,37 @@
         <servlet-name>ViewMenuServlet</servlet-name>
         <url-pattern></url-pattern><!-- home page: empty mapping -->
     </servlet-mapping>
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.pluralcamp.servlets.OrderServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/order.html</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>OrderReceivedServlet</servlet-name>
+        <servlet-class>com.pluralcamp.servlets.OrderReceivedServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>OrderReceivedServlet</servlet-name>
+        <url-pattern>/orderReceived.html</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ThankYouServlet</servlet-name>
+        <servlet-class>com.pluralcamp.servlets.ThankYouServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ThankYouServlet</servlet-name>
+        <url-pattern>/thankYou.html</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
