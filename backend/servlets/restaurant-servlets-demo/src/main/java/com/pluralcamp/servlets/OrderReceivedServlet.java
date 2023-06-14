@@ -16,7 +16,8 @@ public class OrderReceivedServlet extends HttpServlet {
 
     MenuDataService menuDataService = new MenuDataService();
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, 
+    HttpServletResponse response) throws IOException {
 
         int maxId = menuDataService.getFullMenu().size();
 

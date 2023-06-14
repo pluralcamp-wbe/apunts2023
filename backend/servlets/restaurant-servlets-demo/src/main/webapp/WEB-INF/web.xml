@@ -61,5 +61,14 @@
         <url-pattern>/thankYou.html</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MenuSearchServlet</servlet-name>
+        <servlet-class>com.pluralcamp.servlets.MenuSearchServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>MenuSearchServlet</servlet-name>
+        <url-pattern>/searchResults.html</url-pattern><!-- must be action value in form -->
+    </servlet-mapping>
 
 </web-app>
