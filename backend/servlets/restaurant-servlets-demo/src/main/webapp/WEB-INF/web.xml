@@ -14,11 +14,20 @@
         <servlet-class>com.pluralcamp.servlets.HelloMornServlet</servlet-class>
     </servlet>
 
- 
+
     <servlet-mapping>
         <servlet-name>HelloMornServlet</servlet-name>
         <url-pattern>/hellomorn.html</url-pattern>
     </servlet-mapping>
 
- 
+    <servlet>
+        <servlet-name>ViewMenuServlet</servlet-name>
+        <servlet-class>com.pluralcamp.servlets.ViewMenuServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewMenuServlet</servlet-name>
+        <url-pattern></url-pattern><!-- home page: empty mapping -->
+    </servlet-mapping>
+
 </web-app>
