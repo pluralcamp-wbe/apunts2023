@@ -16,6 +16,13 @@ public class OrderReceivedServlet extends HttpServlet {
 
     MenuDataService menuDataService = new MenuDataService();
 
+    @Override
+    public void doGet(HttpServletRequest request, 
+    HttpServletResponse response) throws IOException {
+        doPost(request, response);
+    }
+
+    @Override
     public void doPost(HttpServletRequest request, 
     HttpServletResponse response) throws IOException {
 
@@ -44,18 +51,18 @@ public class OrderReceivedServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("total", total);
 
-        response.sendRedirect("thankYou.html");
+        //response.sendRedirect("thankYou.html");
         // response.sendRedirect("thankYou.html?total=" + total);//is sending a 302
 
-        // PrintWriter out = response.getWriter();
-        // response.setContentType("text/html");
-        // out.println("<html><body><h1>Quark's Restaurant</h1>");
-        // out.println("<h2>Order your food</h2>");
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+        out.println("<html><body><h1>Quark's Restaurant</h1>");
+        out.println("<h2>Order your food</h2>");
 
-        // out.printf("Thank you - your order has been received. You need to pay %.2f euros", total);
+        out.printf("Thank you - your order has been received. You need to pay %.2f euros", total);
 
-        // out.println("</body></html>");
-        // out.close();  
+        out.println("</body></html>");
+        out.close();  
         // vscode: Ctrl+k Ctrl-c (comment) or Ctrl+k Ctrl+u (uncomment)
 
     }

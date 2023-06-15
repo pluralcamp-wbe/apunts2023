@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context 
+          http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<bean id="helloWorld"
+		class="com.pluralcamp.presentation.xml.HelloWorld">
+		<property name="name" value="Hello World!"></property>
+	</bean>
+
+	<bean id="helloWorldConst"
+		class="com.pluralcamp.presentation.xml.HelloWorld">
+		<constructor-arg index="0"
+			value="Hello World from constructor!" type="java.lang.String"></constructor-arg>
+	</bean>
+
+	<bean id="student"
+		class="com.pluralcamp.presentation.entity.Student">
+		<property name="id" value="1"></property>
+		<property name="name" value="Laura"></property>
+		<property name="surname" value="Queralt"></property>
+		<property name="address" value="Carrer Major"></property>
+	</bean>
+
+	<bean id="studentConst"
+		class="com.pluralcamp.presentation.entity.Student">
+		<constructor-arg index="0" value="2" type="int" />
+		<constructor-arg index="1" value="Anna"
+			type="java.lang.String" />
+		<constructor-arg index="2" value="Queralt"
+			type="java.lang.String" />
+		<constructor-arg index="3" value="c/ Narn, 2"
+			type="java.lang.String" />
+	</bean>
+
+</beans>
