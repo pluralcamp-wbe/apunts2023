@@ -16,6 +16,7 @@ public class Main {
 			purchase.buy(true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			System.err.println(e.getMessage());
 			System.err.println("Purchase error. Try again later...");
 		}
 		ctx.close();
