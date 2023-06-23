@@ -1,0 +1,98 @@
+body {
+	padding-top: 5rem;
+}
+
+.starter-template {
+	padding: 3rem 1.5rem;
+	text-align: center;
+}
+
+.navbar-brand {
+	padding-left: 20px;
+}
+
+h1 {
+	color: #1a5fb4;
+	text-align: center;
+}
+
+h2 {
+	color: #a51d2d;
+	text-align: center;
+}
+
+.home-newsletter, .form-student {
+	padding: 50px 0;
+	background: #1a5fb4;
+}
+
+.home-newsletter .single, .form-student .single {
+	max-width: 650px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+.home-newsletter .single h2 {
+	font-size: 22px;
+	color: white;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
+.home-newsletter .single .form-control, .form-student .single .form-control
+	{
+	height: 50px;
+	background: rgba(255, 255, 255, 0.6);
+	border-color: transparent;
+	border-radius: 20px 0 0 20px;
+}
+
+.home-newsletter .single .form-control:focus {
+	box-shadow: none;
+	border-color: #243c4f;
+}
+
+.home-newsletter .single .btn {
+	min-height: 50px;
+	border-radius: 0 20px 20px 0;
+	background: #243c4f;
+	color: #fff;
+}
+
+.form-student {
+	display: flex;
+	flex-direction: column;
+	background: rgb(205, 171, 143);
+}
+
+.form-student fieldset {
+	border: 1px solid rgb(255, 232, 57);
+	width: 500px;
+	margin: auto;
+}
+
+.form-student label {
+	min-width: 80px;
+}
+
+.form-student .single .form-control {
+	height: 40px;
+	width: 400px;
+	margin: 20px;
+	background: rgba(222, 221, 218, 0.6);
+	border-radius: 5px 5px 5px 5px;
+}
+
+.form-student .single .btn {
+	min-height: 50px;
+	border-radius: 5px 5px 5px 5px;
+	background: #243c4f;
+	color: #deddda;
+}
+
+#newstudent {
+	text-align: center;
+	margin-top: 20px;
+}
