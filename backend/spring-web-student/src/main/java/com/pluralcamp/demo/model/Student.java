@@ -1,6 +1,7 @@
-package com.pluralcamp.springweb.model;
+package com.pluralcamp.demo.model;
 
 public class Student {
+
 	private int idstudent;
 
 	private String name;
@@ -40,4 +41,6 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 }
+

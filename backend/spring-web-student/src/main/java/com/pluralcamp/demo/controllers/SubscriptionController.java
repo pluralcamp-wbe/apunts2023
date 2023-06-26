@@ -1,4 +1,4 @@
-package com.pluralcamp.springweb.controllers;
+package com.pluralcamp.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+//Semblant al RestController
+//Però la difència és que gestiona peticions
+//des de HTML o JSP
+//No poso cap RequestMapping pq vull accedir a la URL sense path addicional
 @Controller
 public class SubscriptionController {
+	
 	//inject via application.properties
 	@Value("${welcome.email}")
 	private String email;
@@ -31,3 +36,4 @@ public class SubscriptionController {
 		return "subscription"; //view
 	}
 }
+
