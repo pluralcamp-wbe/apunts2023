@@ -26,6 +26,9 @@ public class StudentController {
 	@Value("${apirest.url}")
 	private String apiUrl;
 	
+	
+	//********  READ ********
+	
 	@GetMapping("/students")
 	public String getStudents(Model model) {
 
@@ -43,6 +46,8 @@ public class StudentController {
 		return "students";
 	}
 	
+	//******** CREATE *******
+	
 	@GetMapping("/addStudent")
 	public ModelAndView addStudentForm() {
 		ModelAndView mav = new ModelAndView("addStudent");
@@ -58,5 +63,10 @@ public class StudentController {
 		restTemplate.postForEntity(apiUrl, student, String.class);
 		return "redirect:/students";
 	}	
+	
+	
+	//******* DELETE *******
+	
+	
 	
 }
