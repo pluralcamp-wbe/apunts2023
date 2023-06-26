@@ -56,7 +56,7 @@ public class StudentController {
 	public String saveStudent(@ModelAttribute Student student) {
 		String apiUrl = this.apiUrl + "/student/students";
 		restTemplate.postForEntity(apiUrl, student, String.class);
-		return "redirect:/studentList";
+		return "redirect:/students";
 	}	
 	
 }

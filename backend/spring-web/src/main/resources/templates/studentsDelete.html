@@ -46,30 +46,11 @@ table.center {
 				<td><span th:text="${student.name}"> Name </span></td>
 				<td><span th:text="${student.surname}"> Surname </span></td>
 				<td><span th:text="${student.age}"> Age </span></td>
+				<td><a class="btn btn-warning" 
+				th:href="@{/deleteStudent/{id}(id=${student.getIdstudent()})}">Delete</a></td>
 			</tr>
 		</tbody>
 	</table>
-	<div th:if="${createdStudent}" id="newstudent">
-		<h4>New student created:</h4>
-		<p>Id: <span th:text="${createdStudent.idstudent}"></span></p>
-		<p>Name: <span th:text="${createdStudent.name}"></span></p>
-		<p>Surname: <span th:text="${createdStudent.surname}"></span></p>	
-		<p>Age: <span th:text="${createdStudent.age}"></span></p>		
-	</div>
-	
-	<div th:if="${rawResponse}" id="rawResponse">
-		<h4>New student created:</h4>
-		<p>Response as a String is:</p>
-		<p><span th:text="${rawResponse}"></span></p>		
-	</div>
-	<div id="update">
-		<h4>Update students?</h4>
-		<p>Clic <a href="/studentsUpdate" >here</a></p>		
-	</div>
-	<div id="delete">
-		<h4>Delete students?</h4>
-		<p>Clic <a href="/studentsDelete" >here</a></p>		
-	</div>
 
 	<!-- /.container -->
 	<script type="text/javascript"
