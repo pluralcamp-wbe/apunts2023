@@ -12,37 +12,37 @@ import com.pluralcamp.demo.repositories.StudentRepository;
 
 @Service
 public class StudentService {
-	
+
 	@Autowired
-	private StudentRepository studentRepository;	
-	
+	private StudentRepository studentRepository;
+
 	/*
 	 * Get List of Students from MySql
 	 */
-	public List<Student> getStudents(){
+	public List<Student> getStudents() {
 		return studentRepository.findAll();
 	}
-	
-	public List<Student> getStudentsByName(String name){
+
+	public List<Student> getStudentsByName(String name) {
 		return studentRepository.findByName(name);
 	}
-	
+
 	public Student getStudentById(int id) throws ResourceNotFoundException {
 		Optional<Student> student = studentRepository.findById(id);
-		if(!student.isPresent()) {
+		if (!student.isPresent()) {
 			throw new ResourceNotFoundException("Recurso no encontrado!");
 		}
 		return student.get();
 	}
-	
-	public List<Student> getStudentsByNameAndSurname(String name, String surname){
+
+	public List<Student> getStudentsByNameAndSurname(String name, String surname) {
 		return studentRepository.findByNameAndSurname(name, surname);
 	}
-	
-	public List<Student> getStudentsByAge(int age){
+
+	public List<Student> getStudentsByAge(int age) {
 		return studentRepository.findByAge(age);
 	}
-	
+
 	/**
 	 * @param student
 	 * @return l'objecte Student guardat a la base de dades
@@ -50,12 +50,10 @@ public class StudentService {
 	public Student saveStudent(Student student) {
 		return studentRepository.save(student);
 	}
-	
-	public Student updateStudent(Student student) 
-			throws ResourceNotFoundException{
-		Optional<Student> oldStudent = 
-				studentRepository.findById(student.getIdstudent());
-		if(!oldStudent.isPresent()) {
+
+	public Student updateStudent(Student student) throws ResourceNotFoundException {
+		Optional<Student> oldStudent = studentRepository.findById(student.getIdstudent());
+		if (!oldStudent.isPresent()) {
 			throw new ResourceNotFoundException("Recurso no encontrado!");
 		} else {
 			Student studentToUpdate = oldStudent.get();
@@ -66,6 +64,13 @@ public class StudentService {
 			return updatedStudent;
 		}
 	}
-	
-	
+
+	/**
+	 * @param student
+	 * @return l'objecte Student guardat a la base de dades
+	 */
+	public void deleteStudentById(int id) {
+		this.studentRepository.deleteById(id);
+	}
+
 }

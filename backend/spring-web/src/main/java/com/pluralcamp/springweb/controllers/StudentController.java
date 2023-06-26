@@ -9,7 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.pluralcamp.springweb.model.Student;
 
@@ -40,6 +43,20 @@ public class StudentController {
 		return "students";
 	}
 	
+	@GetMapping("/addStudent")
+	public ModelAndView addStudentForm() {
+		ModelAndView mav = new ModelAndView("addStudent");
+		Student student = new Student();
+		mav.addObject("student",student);
+		return mav;
+	}	
 	
+	
+	@PostMapping("/saveStudent")
+	public String saveStudent(@ModelAttribute Student student) {
+		String apiUrl = this.apiUrl + "/student/students";
+		restTemplate.postForEntity(apiUrl, student, String.class);
+		return "redirect:/studentList";
+	}	
 	
 }

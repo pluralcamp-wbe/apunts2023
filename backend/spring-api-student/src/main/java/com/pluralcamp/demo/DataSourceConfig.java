@@ -16,7 +16,5 @@ public class DataSourceConfig {
           .username("orboan")
           .password("pluralcamp")
           .build();	
-    }
-    
-
+    }    
 }
